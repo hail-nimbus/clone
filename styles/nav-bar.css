@@ -1,0 +1,189 @@
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 100;
+}
+
+.left-top{
+    display: flex;
+    align-items: center;
+    /* flex-direction: row; */
+    /* margin-right: 100px; */
+
+}
+
+.middle-top{
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    /*
+        Note: without max-width the middle section spans the entire middle part because (flex: 1)
+        So, even if (justify-content: space-between) there will be no space between the elements in the nav-bar
+
+        Hence, we need to set a max-width for the middle section so that there is space between the left-middle-top parts of nav-bar
+    */
+    max-width: 500px;
+
+    margin-left: 80px;
+    margin-right: 40px;
+}
+
+.right-top{
+    display: flex;
+    width: 200px;
+    margin-right: 20px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    flex-shrink: 0; /* so that space between items in flex box don't shrink when window is resized*/
+}
+
+.hamburger-menu{
+    height: 24px;
+    margin-right: 20px;
+    margin-left: 20px;
+
+}
+
+.youtube-logo{
+    height: 20px;
+}
+
+.search-bar{
+    flex: 1;
+    height: 34px;
+    border-radius: 2px;
+    border: 1px solid gray;
+    padding-left: 10px;
+
+    font-size: 16px;
+
+    /* shadow inside box */
+    box-shadow: inset 1px 2px 3px rgba(0,0,0,0.15);
+    /* Elements have default width and won't shrink beyound that width even when window is smaller than the element */
+    /* To shrink the element as much as we want overwrite default width */
+    width: 0px; 
+}
+
+
+.search-bar::placeholder{ /* Specifially target the placeholder */
+    font-size: 16px;
+}
+
+.search-btn{
+    height: 38px;
+    width: 60px;
+    /* negative value of margin pulls it towards that direction */
+    margin-left: -1px;
+    margin-right: 10px;
+}
+
+.search-btn, .voice-search-btn
+{
+    position: relative;
+    /* The tooltip will be inside another div for that we need to set container position relative */
+
+    display: flex;
+    justify-content: center;
+    align-items: center; /* align the two images vertically */
+}
+
+.search-btn .tooltip,
+.voice-search-btn .tooltip
+{
+    /*position it absolute with respect to the container(in this case the search-btn div) */
+    position: absolute;
+    color: white;
+    background-color: gray;
+    padding: 5px 8px;
+    border-radius: 4px;
+    bottom: -40px; /* So that the tooltip appears outside the parent container */
+
+    opacity: 0; /* The tooltip is hidden and only visible on hover */
+    transition: opacity 0.15s;
+    /* Note that the tooltip still apeears when hovered over the div containing the tooltip text */
+    /* To hide it */
+    pointer-events: none;
+
+    white-space: nowrap;
+    /* 
+        When the text inside the div is more the text wraparound by default. Above property overwrites it
+        Try commenting out the above property to see the affect.     
+    */
+}
+
+/* When hovered over search-btn target tooltip */
+.search-btn:hover .tooltip,
+.voice-search-btn:hover .tooltip
+{
+    opacity: 1;
+
+}
+
+/* 
+    Note: 
+    .search-btn:hover .tooltip
+
+    .search-btn .tooltip:hover
+
+    ARE DIFFERENT
+
+*/
+
+.search-icon{
+    height: 25px;
+    width: 50px;
+}
+
+.voice-search-btn{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: none;
+}
+
+.upload{
+    height: 25px;
+}
+
+.youtube-apps{
+    height: 25px;
+}
+
+.notifications-icon{
+    height: 25px;
+}
+
+.notification-container{
+    position: relative;
+}
+
+.notification-count{
+    color: white;
+    font-size: 12px;
+    background-color: red;
+    padding: 2px 5px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    
+    position: absolute;
+    top: -4px;
+    right: -5px;
+}
+
+.my-channel{
+    height: 25px;
+}

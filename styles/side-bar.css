@@ -1,0 +1,36 @@
+.side-nav{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 50px;
+    width: 72px;
+    
+    /* box-shadow: 0px 0px 5px rgba(0,0,0,0.5); */
+}
+
+.side-nav-link{
+    height: 76px;
+
+    display: flex;
+    flex-direction: column; 
+    /* if flex direction not set to column then the text after images will appear in same line as flex-direction is row by default */
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(181, 177, 177); */
+    cursor: pointer;
+}
+
+.side-nav-link:hover{
+    background-color: rgb(215, 214, 214);
+}
+
+/* Target all img tags inside tags with class side-nav-link*/
+.side-nav-link img {
+    height: 26px; 
+}
+
+/* Target all divs inside class side-nav-link*/
+.side-nav-link div{
+    font-size: 10px;
+    margin-top: 5px;
+}
